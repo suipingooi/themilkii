@@ -1,7 +1,7 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
 
 # Create your views here.
 
 
 def product_listing(request):
-    return HttpResponse('stickerlist')
+    return render(request, 'stickers/sticker_read-template.html')
