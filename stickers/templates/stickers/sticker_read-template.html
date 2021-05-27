@@ -5,12 +5,23 @@
 
 {%block content%}
 <div class="container">
-    <h1>stickers list</h1> 
-    <ul>
-        {%for sticker in stickers%}
-        <li>{{sticker.name}}</li>
-        {%endfor%}
-    </ul>
-
+    <div class="row d-flex justify-content-center">
+        {%for s in stickers %}
+        <div class="card stickercard">
+            <div class="col">
+                <img src="{{s.photo.cdn_url}}" class="card-img-top cardimg"
+                    alt="{{s.name}} {{s.description}}" />
+            </div>
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">{{s.name | title}}</h5>
+                <p class="card-text">{{s.description}}
+                    <br> SGD ${{s.price}} per pack
+                </p>
+                <a href="#" class="btn btn-secondary basketbtn mt-auto">
+                    <i class="fas fa-cart-plus"></i></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 {%endblock%}

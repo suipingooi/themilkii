@@ -22,3 +22,15 @@ body {
     padding-top: 5px;
 }
 /* _____________________________________ */
+/* STICKER APP */
+
+.stickercard {
+    width: 22rem;
+    margin: 9px;
+    padding: 9px;
+}
+
+.basketbtn {
+    background-color: #f2b705;
+    border-color: #f2b705;
+}
