@@ -19,5 +19,5 @@ import stickers.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('stickers/', stickers.views.product_listing, name='stickerlist')
+    path('stickers/', stickers.views.sticker_list, name='stickerlist')
 ]

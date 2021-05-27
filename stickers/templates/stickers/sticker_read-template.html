@@ -6,5 +6,11 @@
 {%block content%}
 <div class="container">
     <h1>stickers list</h1> 
+    <ul>
+        {%for sticker in stickers%}
+        <li>{{sticker.name}}</li>
+        {%endfor%}
+    </ul>
+
 </div>
 {%endblock%}
