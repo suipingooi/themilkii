@@ -28,6 +28,7 @@ body {
     width: 22rem;
     margin: 9px;
     padding: 9px;
+    border-radius: 5px;
 }
 
 .basketbtn {
