@@ -35,9 +35,7 @@
             <a href="https://www.instagram.com/themlkiiway" target="blank"
                 id="ig" class="navbar-brand fab fa-instagram"></a>
             <a id="maintitle" class="navbar-brand" href="{% url 'account_login' %}">
-                <!-- <img id="mainlogo" class="navbar-brand" src="{% static 'assets\images\mlkiilogo_walpha.png' %}"
-                    alt="mlkiiway" /> -->
-                themlkiiway</a>
+                @themlkiiway</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigator"
                 aria-controls="navigator" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -83,8 +81,16 @@
         </div>
     </nav>
     {% endif %}
-    {%block content%}
+
+    {%block body%}
     {%endblock%}
+
+    {%block maincontent%}
+    {%endblock%}
+
+    {%block acc_content%}
+    {%endblock%}
+    
      <footer id="footer">
         Copyright &copy; 2021 The Mlkiiway <br> All rights reserved.
     </footer>
