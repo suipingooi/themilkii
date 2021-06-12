@@ -7,17 +7,16 @@
 {% block head_title %}{% trans "themlkiiway | Admin" %}{% endblock %}
 
 {% block content %}
-<div class="container-fluid mt-5 mx-auto">
-    <h1>{% trans "Sign In" %}</h1>
-    <form class="login" method="POST" action="{% url 'account_login' %}">
+<div class="container-fluid mt-5 d-flex justify-content-center">
+    <h1 class="p-3 mt-3">{% trans "Sign In" %}</h1>
+    <form class="login p-3" method="POST" action="{% url 'account_login' %}">
     {% csrf_token %}
     {{ form | crispy }}
     {% if redirect_field_value %}
-    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
-    <a class="button secondaryAction" href="{% url 'account_reset_password' %}">Forgot Password?</a>
-    <button class="primaryAction btn btn-dark" type="submit">{% trans 'Sign In' %}</button>
+        <a class="button secondaryAction" href="{% url 'account_reset_password' %}">Forgot Password?</a><br>
+        <button class="primaryAction btn btn-dark mt-3" type="submit">{% trans 'Sign In' %}</button>
     </form>
 </div>
-
 {% endblock %}

@@ -1,6 +1,8 @@
 body {
     background-color: #aee3e7;
     color: #2f4f4f;
+    font-family: 'Lato', sans-serif;
+    font-size: calc(11px + 0.5vw);
 }
 
 #ig {
@@ -52,6 +54,23 @@ body {
 .consoletitle {
     font-size: 1.08rem;
 }
+
+/* _____________________________________ */
+/* forms */
+
+a.button.secondaryAction {
+    font-size: calc(11px + 0.2vw);
+}
+
+input.textinput.textInput {
+    font-size: calc(9px + 0.3vw);
+    padding-left: 5px;
+}
+
+div.control-group {
+    margin-top: 15px;
+}
+
 
 /* _____________________________________ */
 /* STICKER APP */
