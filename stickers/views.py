@@ -11,6 +11,7 @@ def sticker_list(request):
         'stickers': stickers
     })
 
+
 def sticker_add(request):
     if request.method == 'POST':
         stick_form = StickForm(request.POST)
@@ -29,3 +30,4 @@ def sticker_add(request):
         return render(request, 'stickers/sticker_add-template.html', {
             'form': stick_form
         })
+        
