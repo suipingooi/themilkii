@@ -7,24 +7,14 @@
   <body>
     {% block body %}
 
-        {% if messages %}
-        <div>
-        <strong>Messages:</strong>
-        <ul>
-            {% for message in messages %}
-            <li>{{message}}</li>
-            {% endfor %}
-        </ul>
-        </div>
-        {% endif %}
-
         {% if user.is_authenticated %}
-        <div>
-        <strong>Menu:</strong>
-        <ul>
-            <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
-            <li><a href="{% url 'account_logout' %}">Sign Out</a></li>  
-        </ul>
+        <div class="container">
+            <strong>You are currently logged in as {{request.user | capfirst}}.</strong>
+            <ul>
+                <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
+                <li><a href="{% url 'account_change_password' %}">Change Password</a></li>
+                <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+            </ul>
         </div>
          {% endif %}
 

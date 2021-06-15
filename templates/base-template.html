@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +10,12 @@
 
     <!-- favicon -->
     <link rel="icon" type="image/ico" href="{% static 'assets\images\favicon.ico' %}">
-    
+
     <!-- googlefont pairings -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Chicle&family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,800;1,300;1,400;1,500;1,600;1,800&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chicle&family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,800;1,300;1,400;1,500;1,600;1,800&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
 
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -24,16 +27,17 @@
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
     <!-- toastr -->
-    <link rel="stylesheet" href="{% static 'css\toastr.css' %}" /> 
+    <link rel="stylesheet" href="{% static 'css\toastr.css' %}" />
 
     <!-- style.css -->
     <link rel="stylesheet" href="{% static 'css\style.css' %}">
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light mainnav">
         <div class="container justify-content-between">
-            <a href="https://www.instagram.com/themlkiiway" target="blank"
-                id="ig" class="navbar-brand fab fa-instagram"></a>
+            <a href="https://www.instagram.com/themlkiiway" target="blank" id="ig"
+                class="navbar-brand fab fa-instagram"></a>
             <a id="maintitle" class="navbar-brand" href="{% url 'account_login' %}">
                 @themlkiiway</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigator"
@@ -41,7 +45,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div id="navigator" class="collapse navbar-collapse justify-content-end">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav text-end">
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'index' %}">Home</a>
                     </li>
@@ -68,7 +72,9 @@
             <div class="col text-end">
                 <a class="adminbtn btn btn-light mb-2" href="#">
                     <i class="fas fa-eye"> </i> Orders</a>
-                <a class="adminbtn btn btn-light mb-2" href="{% url 'account_logout' %}">Logout</a>
+                <a class="adminbtn btn-dark mb-2" href="{% url 'account_logout' %}">
+                    <i class="fas fa-tools"></i>
+                </a>
             </div>
             <div class="col mx-auto">
                 <a class="adminbtn btn btn-light mb-2" href="#">
@@ -90,10 +96,10 @@
 
     {%block acc_content%}
     {%endblock%}
-    
-     <footer id="footer">
+
+    <footer id="footer">
         <hr>
-        Copyright &copy; 2021 The Mlkiiway <br> All rights reserved.
+        Copyright &copy; 2021 themlkiiway. <br> All rights reserved.
     </footer>
 
     <!-- JQuery.js -->
@@ -112,5 +118,96 @@
 
     <!-- toastr -->
     <script src="{% static 'js\toastr.js' %}"></script>
+
+    {% if messages %}
+    {% for msg in messages %}
+    {% if msg.tags == "success" %}
+    <script>
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": false,
+            "positionClass": "toast-bottom-full-width",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showDuration": "5000",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "3000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+        toastr.success('{{msg}}')
+    </script>
+    {% elif msg.tags == "error" %}
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": false,
+            "positionClass": "toast-bottom-full-width",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showDuration": "5000",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "3000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        toastr.error('{{msg}}')
+    </script>
+    {% elif msg.tags == "warning" %}
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": false,
+            "positionClass": "toast-bottom-full-width",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showDuration": "5000",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "3000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        toastr.warning('{{msg}}')
+    </script>
+    {% elif msg.tags == "info" %}
+    <script>
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": false,
+            "positionClass": "toast-bottom-full-width",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showDuration": "5000",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "3000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        toastr.info('{{msg}}')
+    </script>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
 </body>
+
 </html>
