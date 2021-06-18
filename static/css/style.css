@@ -124,13 +124,6 @@ span.primary {
 }
 
 .cardimg {
-    height: 210px;
-}
-
-.productcard {
-    margin: 15px;
-    padding: 8px;
-    width: 20rem;
-    background-color: #fce0dd;
-    border-radius: 20px;
+    height: 230px;
+    padding: 15px;
 }
