@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse, redirect
+from django.shortcuts import render, reverse, redirect, get_object_or_404
 from .models import sticker
 from .forms import StickForm
 from django.contrib import messages
@@ -30,4 +30,16 @@ def sticker_add(request):
         return render(request, 'stickers/sticker_add-template.html', {
             'form': stick_form
         })
-        
+
+
+def sticker_del(request, sticky_id):
+    sticky_to_delete = get_object_or_404(sticker, pk=sticky_id)
+    if request.method == "POST":
+        sticky_to_delete.delete()
+        messages.success(request, 'Sticker Pack Entry Deleted')
+        return redirect(sticker_list)
+    else:
+        messages.warning(request, 'DELETE action cannot be undone')
+        return render(request, 'stickers/sticker_del-template.html', {
+            'sticky': sticky_to_delete,
+        })

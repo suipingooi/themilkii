@@ -1,5 +1,4 @@
 {% extends 'base-template.html' %}
-{% load static %}
 
 {% block head_title %} themlkiiway | stickers {% endblock %}
 
@@ -9,8 +8,11 @@
         {%for s in stickers %}
         <div class="card stickercard">
             <div class="col">
-                <img src="{{s.photo.cdn_url}}" class="card-img-top cardimg"
-                    alt="{{s.name}} {{s.description}}" />
+                <a class="btn cartdelbtn" href="{% url 'del_sticker' sticky_id=s.id %}">
+                    <i class="fas fa-trash-alt"></i></a>
+                <!-- <a class="btn carteditbtn" href="#">
+                    <i class="fas fa-edit"></i></a> -->
+                <img src="{{s.photo.cdn_url}}" class="card-img-top cardimg" alt="{{s.name}} {{s.description}}" />
             </div>
             <div class="card-body d-flex flex-column">
                 <h5 class="card-title">{{s.name | title}}</h5>
