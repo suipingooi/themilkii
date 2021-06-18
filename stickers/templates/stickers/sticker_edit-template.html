@@ -1,0 +1,38 @@
+{% extends 'base-template.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block head_title %} themlkiiway | stickers {% endblock %}
+
+{% block mediacss %}
+{{form.media}}
+{% endblock %}
+
+{%block maincontent%}
+<div class="container mt-5">
+    <div class="forms">
+        <h4>Editing Sticker Pack Listing for {{sticky.name}}</h4>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                {{ form.name | as_crispy_field }}
+                </div>
+                <div class="col-sm-6 form-group">
+                {{ form.description | as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                {{ form.price | as_crispy_field }}
+                </div>
+                <div class="col-sm-6 form-group">
+                {{ form.photo | as_crispy_field }}
+                </div>
+            </div>           
+            <a class="btn btn-outline-secondary mt-5" href="{% url 'stickerlist' %}">back</a>
+            <input class="btn btn-secondary mt-5" type="submit" value="update" />
+        </form>
+    </div>
+</div>
+{%endblock%}

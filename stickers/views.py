@@ -43,3 +43,27 @@ def sticker_del(request, sticky_id):
         return render(request, 'stickers/sticker_del-template.html', {
             'sticky': sticky_to_delete,
         })
+
+
+def sticker_edit(request, sticky_id):
+    sticky_to_edit = get_object_or_404(sticker, pk=sticky_id)
+    if request.method == "POST":
+        stick_form = StickForm(request.POST, instance=sticky_to_edit)
+        if stick_form.is_valid():
+            stick_form.save()
+            messages.success(request, 'Sticker Pack Entry Listing Updated')
+            return redirect(reverse(sticker_list))
+        else:
+            messages.error(
+                request, 'Action Unsuccessful, Please check error fields')
+            return render(request, 'stickers/sticker_edit-template.html', {
+                'form': stick_form,
+                'sticky': sticky_to_edit
+            })
+    else:
+        messages.info(request, 'EDIT action will overwrite data')
+        stick_form = StickForm(instance=sticky_to_edit)
+        return render(request, 'stickers/sticker_edit-template.html', {
+            'form': stick_form,
+            'sticky': sticky_to_edit
+        })
