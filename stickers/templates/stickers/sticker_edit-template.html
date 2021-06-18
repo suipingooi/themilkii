@@ -16,20 +16,20 @@
             {% csrf_token %}
             <div class="row">
                 <div class="col-sm-6 form-group">
-                {{ form.name | as_crispy_field }}
+                    {{ form.name | as_crispy_field }}
                 </div>
                 <div class="col-sm-6 form-group">
-                {{ form.description | as_crispy_field }}
+                    {{ form.description | as_crispy_field }}
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6 form-group">
-                {{ form.price | as_crispy_field }}
+                    {{ form.price | as_crispy_field }}
                 </div>
                 <div class="col-sm-6 form-group">
-                {{ form.photo | as_crispy_field }}
+                    {{ form.photo | as_crispy_field }}
                 </div>
-            </div>           
+            </div>
             <a class="btn btn-outline-secondary mt-5" href="{% url 'stickerlist' %}">back</a>
             <input class="btn btn-secondary mt-5" type="submit" value="update" />
         </form>

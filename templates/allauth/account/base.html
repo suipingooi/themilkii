@@ -1,18 +1,20 @@
 {% extends "base-template.html" %}
-  <head>
+
+<head>
     <title>{% block head_title %}{% endblock %}</title>
     {% block extra_head %}
     {% endblock %}
-  </head>
-  <body>
+</head>
+
+<body>
     {% block body %}
 
-        {% block content %}
-        {% endblock %}
+    {% block content %}
+    {% endblock %}
 
     {% endblock %}
 
     {% block extra_body %}
     {% endblock %}
 
-  </body>
+</body>

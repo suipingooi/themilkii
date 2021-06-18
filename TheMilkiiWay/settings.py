@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-load_dotenv(os.path.join(BASE_DIR,'.env'))
+load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 UPLOADCARE = {
     'pub_key': os.environ.get('UPLOADCARE_PUBLIC_KEY'),
@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'main',
     'pyuploadcare.dj',
     'crispy_forms',
+    'cart',
 ]
 
 MIDDLEWARE = [
