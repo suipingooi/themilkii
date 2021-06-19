@@ -19,7 +19,7 @@
                 <p class="card-text">{{s.description}}
                     <br> SGD ${{s.price}} per pack
                 </p>
-                <a href="#" class="btn btn-secondary basketbtn mt-auto">
+                <a href="{% url 'cart_add' sticky_id=s.id%}" class="btn btn-secondary basketbtn mt-auto">
                     <i class="fas fa-cart-plus"></i></a>
             </div>
         </div>
